@@ -1,25 +1,19 @@
-# Dockerfile
-
-# Usar la imagen base de Nixpacks
-FROM nixpacks/build:latest
+# ...existing code...
+# Usar la imagen base de Debian
+FROM debian:bullseye-slim
 
 # Establece el directorio de trabajo dentro del contenedor
 WORKDIR /app
 
-# Copia el binario de PocketBase a la imagen
-COPY pocketbase /app/pocketbase
+# Copia los archivos necesarios al contenedor
+COPY . /app
 
-# Ejecuta la construcción con Nixpacks y coloca los artefactos en la carpeta de salida
-RUN nixpacks build /app -o /output
+# Da permisos de ejecución al binario de PocketBase
+RUN chmod +x /app/pocketbase
 
-# Imagen base liviana para ejecutar la aplicación
-FROM debian:bullseye-slim
-
-# Copia los artefactos construidos desde la primera fase
-COPY --from=0 /output /
-
-# Expone el puerto de la aplicación
+# Exponer el puerto especificado
 EXPOSE 8090
 
-# Ejecuta el comando para iniciar PocketBase
+# Comando para iniciar PocketBase
 CMD ["/app/pocketbase", "serve", "--http", "0.0.0.0:8090"]
+# ...existing code...
