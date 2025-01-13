@@ -1,1 +1,1 @@
-pocketbase.exe serve --http 0.0.0.0:8080
+pocketbase.exe serve --http 0.0.0.0:8090
