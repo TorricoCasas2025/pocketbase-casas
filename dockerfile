@@ -13,4 +13,4 @@ RUN chmod +x /root/pocketbase
 EXPOSE 8090
 
 # Ejecuta pocketbase
-CMD ["/root/pocketbase", "serve", "--http", "0.0.0.0:8080"]
+CMD ["/root/pocketbase", "serve", "--http", "0.0.0.0:8090"]
