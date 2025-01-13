@@ -9,7 +9,7 @@ WORKDIR /root
 # Da permisos de ejecución a pocketbase
 RUN chmod +x /root/pocketbase
 
-# Expone el puerto 8080
+# Expone el puerto 8090
 EXPOSE 8090
 
 # Ejecuta pocketbase
