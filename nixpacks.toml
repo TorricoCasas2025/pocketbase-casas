@@ -1,17 +1,20 @@
 # nixpacks.toml
 
+# Fase de configuración: da permisos de ejecución al binario de PocketBase
 [phases.setup]
-# Asegúrate de que el binario tiene permisos de ejecución
 commands = ["chmod +x /app/pocketbase"]
 
+# Fase de inicio: el comando para iniciar PocketBase
 [phases.start]
-# Comando para ejecutar PocketBase
-commands = ["/app/pocketbase serve --http 0.0.0.0:8090"]
+commands = ["/app/pocketbase serve --http 0.0.0.0:${PORT}"]
 
+# Variables de entorno para configurar el puerto
+[environment]
+PORT = "8090"
+
+# Dependencias: Si es necesario, puedes agregar paquetes adicionales aquí
 [dependencies]
-# Puedes añadir dependencias si las necesitas, pero PocketBase no tiene dependencias adicionales por defecto.
 packages = []
 
-[environment]
-# Definir el puerto que será expuesto
+# Definir el puerto que se expondrá (especificamos el puerto para Railway)
 EXPOSE_PORT = "8090"
