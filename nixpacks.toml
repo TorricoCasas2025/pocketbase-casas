@@ -1,0 +1,11 @@
+[phases.setup]
+commands = ["chmod +x /app/pocketbase"]
+
+[phases.start]
+commands = ["/app/pocketbase serve --http 0.0.0.0:8090"]
+
+[dependencies]
+packages = [] # Puedes agregar dependencias adicionales aquí si las necesitas.
+
+[environment]
+EXPOSE_PORT = "8090" # Exposición del puerto.
