@@ -4,6 +4,7 @@
 [phases.setup]
 commands = ["chmod +x /app/pocketbase"]
 
+
 # Fase de inicio: el comando para iniciar PocketBase
 [phases.start]
 commands = ["/app/pocketbase serve --http 0.0.0.0:${PORT}"]
